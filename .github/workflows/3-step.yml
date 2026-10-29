@@ -62,7 +62,6 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v47
         with:
-          base_sha: ${{ github.event.repository.default_branch }}
           files: |
             src/static/app.js
             src/static/styles.css

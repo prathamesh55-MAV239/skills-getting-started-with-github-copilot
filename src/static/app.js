@@ -47,6 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
         participantsSection.appendChild(participantsHeading);
 
         const participantsList = document.createElement("ul");
+        if (details.participants.length === 0) {
+          const emptyMessage = document.createElement("li");
+          emptyMessage.className = "participants-empty";
+          emptyMessage.textContent = "No participants yet.";
+          participantsList.appendChild(emptyMessage);
+        }
+
         details.participants.forEach((email) => {
           const participant = document.createElement("li");
 

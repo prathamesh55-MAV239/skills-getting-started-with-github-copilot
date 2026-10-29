@@ -101,6 +101,12 @@ section h3 {
   padding: 4px 0;
 }
 
+.activity-participants li.participants-empty {
+  justify-content: flex-start;
+  color: #666;
+  font-style: italic;
+}
+
 .participant-email {
   min-width: 0;
   overflow-wrap: anywhere;

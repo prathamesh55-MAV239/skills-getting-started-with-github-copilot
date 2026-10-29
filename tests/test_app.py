@@ -73,12 +73,13 @@ def test_signup_rejects_duplicate_participant(client):
     activity_name = "Basketball Team"
     email = "student@mergington.edu"
     signup_url = f"/activities/{activity_name}/signup"
-    client.post(signup_url, params={"email": email})
+    first_response = client.post(signup_url, params={"email": email})
 
     # Act
     response = client.post(signup_url, params={"email": email})
 
     # Assert
+    assert first_response.status_code == 200
     assert response.status_code == 400
     assert response.json()["detail"] == "Student is already signed up for this activity"
     assert activities[activity_name]["participants"].count(email) == 1
